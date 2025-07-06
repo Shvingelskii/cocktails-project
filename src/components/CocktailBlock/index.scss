@@ -1,0 +1,38 @@
+.cocktail-block {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+
+  .cocktail-block-wrapper {
+    width: calc(50% - 4px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cocktail-block__img {
+    width: calc(50% - 4px);
+
+    & > img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column-reverse;
+
+    .cocktail-block-wrapper {
+      width: 100%;
+    }
+
+    .cocktail-block__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

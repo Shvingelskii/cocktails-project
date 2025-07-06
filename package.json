@@ -1,0 +1,42 @@
+{
+  "name": "cocktails",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "prettier": "prettier --write .",
+    "build": "tsc -b && vite build && yarn prettier",
+    "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}'"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-lazy-load-image-component": "^1.6.3",
+    "react-modern-drawer": "^1.4.0",
+    "react-router-dom": "^7.6.3",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/react-lazy-load-image-component": "^1.6.4",
+    "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.89.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.34.1",
+    "vite": "^7.0.0",
+    "vite-plugin-eslint": "^1.8.1"
+  }
+}

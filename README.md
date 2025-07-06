@@ -1,1 +1,1 @@
-# cocktails-project
+Cocktails test project
