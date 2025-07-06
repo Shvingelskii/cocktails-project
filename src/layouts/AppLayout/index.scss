@@ -17,4 +17,8 @@
     overflow: hidden;
     padding: 16px 0;
   }
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 68px;
+  }
 }
