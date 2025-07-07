@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import SidebarMenu from "@/components/SidebarMenu";
+import SidebarMenu from "@/features/cocktails/containers /SidebarMenu";
 import "./index.scss";
 
-interface IAppLayoutProps {
+interface ICocktailLayoutProps {
   children: React.ReactNode;
 }
 
-const AppLayout: FC<IAppLayoutProps> = ({ children }) => {
+const CocktailLayout: FC<ICocktailLayoutProps> = ({ children }) => {
   return (
     <section className="main-layout">
       <SidebarMenu />
@@ -15,4 +15,4 @@ const AppLayout: FC<IAppLayoutProps> = ({ children }) => {
   );
 };
 
-export default AppLayout;
+export default CocktailLayout;

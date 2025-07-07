@@ -1,23 +1,38 @@
-import { ICocktail } from "@/store/useCocktailStore.ts";
-import { getIngredientsWithMeasures } from "@/utils/getIngredientsWithMeasures.ts";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./index.scss";
 
-const CocktailBlock = ({ cocktail }: { cocktail: ICocktail }) => {
-  const ingredients = getIngredientsWithMeasures(cocktail);
+interface ICocktailBlockProps {
+  strDrink: string;
+  strCategory: string;
+  strAlcoholic: string;
+  strGlass: string;
+  strInstructions: string;
+  strDrinkThumb: string;
+  ingredients: string[];
+}
+
+const CocktailBlock = ({
+  strDrink,
+  strCategory,
+  strAlcoholic,
+  strGlass,
+  strInstructions,
+  strDrinkThumb,
+  ingredients,
+}: ICocktailBlockProps) => {
   return (
     <div className="cocktail-block">
       <div className="cocktail-block-wrapper">
         <div className="cocktail-block-wrapper__info">
-          <h2>{cocktail.strDrink}</h2>
-          <p>{cocktail.strCategory}</p>
-          <p>{cocktail.strAlcoholic}</p>
-          <p>{cocktail.strGlass}</p>
+          <h2>{strDrink}</h2>
+          <p>{strCategory}</p>
+          <p>{strAlcoholic}</p>
+          <p>{strGlass}</p>
         </div>
         <div className="cocktail-block-wrapper__instructions">
           <h3>Instructions:</h3>
-          <p>{cocktail.strInstructions}</p>
+          <p>{strInstructions}</p>
         </div>
         <div className="cocktail-block-wrapper__ingredients">
           <h3>List of ingredients:</h3>
@@ -27,10 +42,10 @@ const CocktailBlock = ({ cocktail }: { cocktail: ICocktail }) => {
         </div>
       </div>
       <div className="cocktail-block__img">
-        {cocktail.strDrinkThumb ? (
+        {strDrinkThumb ? (
           <LazyLoadImage
             alt="drink thumb"
-            src={cocktail.strDrinkThumb}
+            src={strDrinkThumb}
             // effect="blur"
             width="100%"
           />

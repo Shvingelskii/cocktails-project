@@ -1,5 +1,3 @@
-import { create } from "zustand";
-
 export interface ICocktail {
   dateModified: string;
   idDrink: string;
@@ -53,49 +51,3 @@ export interface ICocktail {
   strTags: string | null;
   strVideo: string | null;
 }
-
-interface ICocktailResponse {
-  drinks: ICocktail[];
-}
-
-interface CocktailStore {
-  cocktails: Record<string, ICocktail[] | null>;
-  loading: Record<string, boolean>;
-  error: Record<string, string | null>;
-  fetchCocktail: (cocktailCode: string) => Promise<void>;
-}
-
-export const useCocktailStore = create<CocktailStore>((set, get) => ({
-  cocktails: {},
-  loading: {},
-  error: {},
-
-  fetchCocktail: async (code: string) => {
-    if (get().loading[code]) return;
-
-    set((state) => ({
-      loading: { ...state.loading, [code]: true },
-      error: { ...state.error, [code]: null },
-    }));
-
-    try {
-      const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${code}`);
-      if (!res.ok) {
-        new Error(`Error with status ${res.status}`);
-      }
-
-      const data: ICocktailResponse = await res.json();
-
-      set((state) => ({
-        cocktails: { ...state.cocktails, [code]: data.drinks },
-        loading: { ...state.loading, [code]: false },
-        error: { ...state.error, [code]: null },
-      }));
-    } catch (err: any) {
-      set((state) => ({
-        loading: { ...state.loading, [code]: false },
-        error: { ...state.error, [code]: err.message || "Something went wrong" },
-      }));
-    }
-  },
-}));

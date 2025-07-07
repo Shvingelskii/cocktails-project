@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { PAGES_ARRAY } from "@/router/const.ts";
-import MenuItem from "@/components/SidebarMenu/components/MenuItem";
+import { COCKTAILS_PAGES_ARRAY } from "@/shared/constants/routes.ts";
 import { capitalize } from "lodash";
 import Drawer from "react-modern-drawer";
 import { useLocation } from "react-router-dom";
+import MenuItem from "@/shared/ui/MenuItem";
 import "react-modern-drawer/dist/index.css";
 import "./index.scss";
 
@@ -19,7 +19,7 @@ const SidebarMenu = () => {
     return (
       <nav className="sidebar">
         <ul>
-          {PAGES_ARRAY.map((path) => {
+          {COCKTAILS_PAGES_ARRAY.map((path) => {
             // remove '/'
             const pageKey = path.slice(1);
             const title = capitalize(pageKey);
